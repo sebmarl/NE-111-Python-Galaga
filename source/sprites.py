@@ -62,7 +62,7 @@ class Player(GalagaSprite):
 
     def __init__(self, x, y):
         super(Player, self).__init__(x, y, 14, 12)
-        self.image = grab_ship
+        self.image = pygame.image.load(ship) 
         self.image_offset_x = 1
 
     def update(self, delta_time, keys):
@@ -90,7 +90,7 @@ class Enemy(GalagaSprite):
     def display(self, surface: pygame.Surface):
         frame_num = get_frame()
         x, y, w, h = self.FRAMES[self.enemy_type][frame_num]
-        self.image = grab_zapdos
+        self.image = pygame.image.load(zapdos) 
         super(Enemy, self).display(surface)
 """ Creates the enemy that starts shooting towards the player SM """ 
 
