@@ -3,6 +3,7 @@ import pygame
 from . import constants as c, tools
 from .constants import Rectangle
 from .tools import grab_sheet
+import os 
 
 
 class GalagaSprite(pygame.sprite.Sprite):
@@ -61,7 +62,7 @@ class Player(GalagaSprite):
 
     def __init__(self, x, y):
         super(Player, self).__init__(x, y, 14, 12)
-        self.image = grab_sheet(6 * 16, 0 * 16, 16, 16)
+        self.image = pygame.image.load(os.path.join("downloads", "ship.png") 
         self.image_offset_x = 1
 
     def update(self, delta_time, keys):
@@ -70,6 +71,7 @@ class Player(GalagaSprite):
             self.x += s
         elif keys[pygame.K_LEFT]:
             self.x -= s
+""" Creates the playes space ship that he is able to use SM """ 
 
 
 class Enemy(GalagaSprite):
@@ -88,8 +90,9 @@ class Enemy(GalagaSprite):
     def display(self, surface: pygame.Surface):
         frame_num = get_frame()
         x, y, w, h = self.FRAMES[self.enemy_type][frame_num]
-        self.image = grab_sheet(x, y, w, h)
+        self.image = pygame.image.load(os.path.join("downloads" , "zapdos.png") 
         super(Enemy, self).display(surface)
+""" Creates the enemy that starts shooting towards the player SM """ 
 
 
 class Missile(GalagaSprite):
