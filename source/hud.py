@@ -20,6 +20,8 @@ def draw_lives(screen, num_extra_lives):
     # lives
     for i in range(num_extra_lives):
         screen.blit(ICONS.life, (3 + i * 16, c.STAGE_BOTTOM_Y + 1, 16, 16))
+      """This displays the number of lives the player has left. It checks the values inside the variable num_extra_lives\
+            Then using the built in screen function on pygame, it displayes the number of lives the player has left"""
 
 
 def draw_stage_badges(screen, stage_badges, stage_badge_animation_step):
@@ -27,6 +29,7 @@ def draw_stage_badges(screen, stage_badges, stage_badge_animation_step):
     draw_x = c.GAME_SIZE.width
     h = c.BADGE_Y
     number_to_draw = stage_badge_animation_step
+
 
     for n in range(stage_badges.stage_1):
         if number_to_draw > 0:
@@ -75,6 +78,7 @@ def draw_stage_badges(screen, stage_badges, stage_badge_animation_step):
             number_to_draw -= 1
         else:
             return
+          
 
 
 def display(screen: pygame.Surface, one_up_score: int, high_score: int, offset_y: int = 0, num_extra_lives=0,
@@ -100,3 +104,6 @@ def display(screen: pygame.Surface, one_up_score: int, high_score: int, offset_y
 
     if stage_badges is not None:
         draw_stage_badges(screen, stage_badges, stage_badge_animation_step)
+      """This displays the users score on the screen by using a combinationof if statements. The first if statement is checking the show_1up variable\
+      then displayingthe points using the built in pygame function "draw". The second if statement is checking the number of extra lives, then displaying\ 
+      them. The last if statemet checks if there are still stage badges, if there are stage badges left, if draws the stage badges using the stage badges function created above""" 
