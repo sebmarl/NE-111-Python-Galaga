@@ -156,7 +156,7 @@ class GameOver(State):
         self.persist.stars.moving = 1
 
         self.stage_badges = calc_stage_badges(self.persist.stage_num)
-
+""" Checks if player died, if so plays the GAME OVER SOUND SM """ 
         # Just render the surface once
         if self.persist.num_shots == 0:
             self.ratio = 0
@@ -172,12 +172,14 @@ class GameOver(State):
             self.is_done = True
             self.next_state_name = c.TITLE_STATE
             stop_sounds()
+""" Checks if the current time is greater than start time, if so loads a new game stage SM """ 
 
     def display(self, screen: pygame.Surface):
         screen.fill(c.BLACK)
         self.persist.stars.display(screen)
 
         x, y = c.GAME_CENTER.x, 100
+        """ Displays a black screen after the player has dies until the new game stage is laoded SM """ 
 
         draw_text(surface=screen, text=c.RESULT_TEXT,
                   position=(x, y), color=c.RED, center_x=True)
