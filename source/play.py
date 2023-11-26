@@ -129,6 +129,8 @@ class Play(State):
         self.missiles.add(m)
         self.num_shots += 1
 
+    """ controls the player missile sounds SM (Sebastian Marion_landais) """ 
+
     def play_intro_music(self):
         # Make the game play the intro music and wait
         stop_sounds()
@@ -149,6 +151,7 @@ class Play(State):
             self.stage_badge_animation_step += 1
             self.stage_badge_animation_timer = 0
             play_sound('stage_award')
+                    """ Animates the stage badges SM """ 
 
     def update(self, delta_time, keys):
         # More important things to update
@@ -170,6 +173,7 @@ class Play(State):
 
     def add_explosion(self, x, y, is_player_type=False):
         self.explosions.add(sprites.Explosion(x, y, is_player_type=is_player_type))
+        
 
     def update_missiles(self, delta_time):
         for a_missile in self.missiles.sprites():
@@ -198,6 +202,7 @@ class Play(State):
                     if not STAGE_BOUNDS.contains(a_missile.rect):
                         a_missile.kill()
                     break
+                """ Checks if missiles hit the enemies, plays the enemy hit sound if enemy was hit SM """ 
 
     def kill_player(self):
         if self.player is None or not self.is_player_alive:
@@ -207,6 +212,8 @@ class Play(State):
         self.player.kill()
         self.add_explosion(self.player.x, self.player.y, is_player_type=True)
         self.reform_enemies()
+        """ Kills enemy player if player is dead, does this by checking if player is dead using None or pygame built in\
+        function is_player_alive SM """ 
 
     def reform_enemies(self):
         self.is_ready = False
@@ -221,7 +228,7 @@ class Play(State):
 
     def decrement_lives(self):
         self.extra_lives -= 1
-
+""" reduces the amoount of lives the player has if hit SM """ 
     def update_timers(self, delta_time: float):
         # the "blocking" timer that blocks stuff
         if self.is_starting:
@@ -288,6 +295,7 @@ class Play(State):
 
         self.update_stage_badges()
         self.start_animating_stage_badges()
+    
 
     def start_animating_stage_badges(self):
         self.is_animating_stage_badges = True
