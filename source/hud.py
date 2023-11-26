@@ -106,4 +106,4 @@ def display(screen: pygame.Surface, one_up_score: int, high_score: int, offset_y
         draw_stage_badges(screen, stage_badges, stage_badge_animation_step)
       """This displays the users score on the screen by using a combinationof if statements. The first if statement is checking the show_1up variable\
       then displayingthe points using the built in pygame function "draw". The second if statement is checking the number of extra lives, then displaying\ 
-      them. The last if statemet checks if there are still stage badges, if there are stage badges left, if draws the stage badges using the stage badges function created above""" 
+      them. The last if statemet checks if there are still stage badges, if there are stage badges left, if draws the stage badges using the stage badges function created above SM""" 
