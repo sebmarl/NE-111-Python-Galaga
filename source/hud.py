@@ -21,7 +21,7 @@ def draw_lives(screen, num_extra_lives):
     for i in range(num_extra_lives):
         screen.blit(ICONS.life, (3 + i * 16, c.STAGE_BOTTOM_Y + 1, 16, 16))
       """This displays the number of lives the player has left. It checks the values inside the variable num_extra_lives\
-            Then using the built in screen function on pygame, it displayes the number of lives the player has left"""
+            Then using the built in screen function on pygame, it displayes the number of lives the player has left SM """
 
 
 def draw_stage_badges(screen, stage_badges, stage_badge_animation_step):
