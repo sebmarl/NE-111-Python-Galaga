@@ -27,4 +27,7 @@ class Enemy:
     def update(self):
         self.move()
         self.draw()
+""" This adds in the enemies into the game. The init function function describes the attributes the enemies need in order to exist. The draw \
+function is a built in pygane function that draws the image of the enemies. The move function is what allows the enemies to move in a circle motion\
+while advancing towards the player SM """ 
 
