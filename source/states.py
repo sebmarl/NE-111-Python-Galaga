@@ -171,8 +171,6 @@ class GameOver(State):
             self.is_done = True
             self.next_state_name = c.TITLE_STATE
             stop_sounds()
-""" Checks if the current time is greater than start time, if so loads a new game stage, \
- Checks if player died, if so plays the GAME OVER SOUND SM """ 
 
     def display(self, screen: pygame.Surface):
         screen.fill(c.BLACK)
@@ -196,7 +194,9 @@ class GameOver(State):
 
         hud.display(screen, one_up_score=self.persist.one_up_score, high_score=self.persist.high_score,
                     stage_badges=self.stage_badges, stage_badge_animation_step=sum(self.stage_badges))
-
+        
+""" Checks if the current time is greater than start time, if so loads a new game stage, \
+ Checks if player died, if so plays the GAME OVER SOUND SM """ 
 
 class Demo(State):
     # TODO: implement
