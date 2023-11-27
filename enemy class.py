@@ -1,17 +1,23 @@
+SM -Sebastian Marion-landais
 import pygame
 import math
+import os 
 
 class Enemy:
-    def __init__(self, screen, x, y, speed, radius):
+    zapdos = os.path.join(os.path.expanduser('~'), 'Desktop', 'downloads', 'zapdossprite.png')
+    def __init__(self, screen, x, y, speed, radius, zapdos):
+        
         self.screen = screen
         self.x = x
         self.y = y
         self.speed = speed
         self.radius = radius
         self.angle = 0
+        self.image = pygame.image.load(zapdos)
+        self.image = pygame.transform.scale(self.image, (radius * 2, radius * 2))
 
     def draw(self):
-        pygame.draw.circle(self.screen, (255, 0, 0), (self.x, self.y), self.radius)
+        self.screen.blit(self.image, (self.x - self.radius, self.y - self.radius))
 
     def move(self):
         self.angle += self.speed
