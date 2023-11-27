@@ -107,7 +107,10 @@ class Enemy(GalagaSprite):
         x, y, w, h = self.FRAMES[self.enemy_type][frame_num]
         self.image = grab_sheet(x, y, w, h)
         super(Enemy, self).display(surface)
-""" Creates the enemy that starts shooting towards the player SM """ 
+        
+""" Creates the enemy that starts shooting towards the player SM\
+init function holds the necessary attributes the enemy needs in order\
+to exist in the game and move in a circular path. Display function """ 
 
 
 class Missile(GalagaSprite):
