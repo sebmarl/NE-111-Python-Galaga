@@ -156,7 +156,6 @@ class GameOver(State):
         self.persist.stars.moving = 1
 
         self.stage_badges = calc_stage_badges(self.persist.stage_num)
-""" Checks if player died, if so plays the GAME OVER SOUND SM """ 
         # Just render the surface once
         if self.persist.num_shots == 0:
             self.ratio = 0
@@ -172,7 +171,8 @@ class GameOver(State):
             self.is_done = True
             self.next_state_name = c.TITLE_STATE
             stop_sounds()
-""" Checks if the current time is greater than start time, if so loads a new game stage SM """ 
+""" Checks if the current time is greater than start time, if so loads a new game stage, \
+ Checks if player died, if so plays the GAME OVER SOUND SM """ 
 
     def display(self, screen: pygame.Surface):
         screen.fill(c.BLACK)
