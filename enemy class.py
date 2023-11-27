@@ -3,7 +3,7 @@ import pygame
 import math
 import os 
 
-class Enemy:
+class enemy(GalagaSprite):
     zapdos = os.path.join(os.path.expanduser('~'), 'Desktop', 'downloads', 'zapdossprite.png')
     def __init__(self, screen, x, y, speed, radius, zapdos):
         
