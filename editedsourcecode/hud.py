@@ -5,7 +5,7 @@ import pygame
 from . import constants as c
 from .constants import Point
 from .tools import draw_text, grab_sheet
-
+#tuple to store the icons for the heads-up display elements
 GuiTuple = namedtuple("GuiTuple", "life stage_1 stage_5 stage_10 stage_20 stage_30 stage_50")
 
 BLINK_1UP = 450  # milliseconds
@@ -15,20 +15,21 @@ ICONS = GuiTuple(grab_sheet(96, 0, 16, 16), grab_sheet(208, 48, 7, 16), grab_she
                  grab_sheet(176, 48, 14, 16), grab_sheet(160, 48, 15, 16), grab_sheet(144, 48, 16, 16),
                  grab_sheet(128, 48, 16, 16))
 
-
+#function that will draw the number of lives remainging for the player
 def draw_lives(screen, num_extra_lives):
     # lives
     for i in range(num_extra_lives):
         screen.blit(ICONS.life, (3 + i * 16, c.STAGE_BOTTOM_Y + 1, 16, 16))
 
-
+#function that will draw the stage level badges
 def draw_stage_badges(screen, stage_badges, stage_badge_animation_step):
     # draw the stage level badges
     draw_x = c.GAME_SIZE.width
     h = c.BADGE_Y
     number_to_draw = stage_badge_animation_step
 
-    for n in range(stage_badges.stage_1):
+   #for loops that will draw the stage badges according to number of badges and the animation 
+    for n in range(stage_badges.stage_1):#loop for stage 1
         if number_to_draw > 0:
             draw_x -= 8
             screen.blit(ICONS.stage_1, (draw_x, h, 7, 16))
@@ -36,7 +37,7 @@ def draw_stage_badges(screen, stage_badges, stage_badge_animation_step):
         else:
             return
 
-    for n in range(stage_badges.stage_5):
+    for n in range(stage_badges.stage_5):#loop for stage 5
         if number_to_draw > 0:
             draw_x -= 8
             screen.blit(ICONS.stage_5, (draw_x, h, 7, 16))
@@ -44,7 +45,7 @@ def draw_stage_badges(screen, stage_badges, stage_badge_animation_step):
         else:
             return
 
-    for n in range(stage_badges.stage_10):
+    for n in range(stage_badges.stage_10):#loop for stage 10
         if number_to_draw > 0:
             draw_x -= 14
             screen.blit(ICONS.stage_10, (draw_x, h, 14, 16))
@@ -52,7 +53,7 @@ def draw_stage_badges(screen, stage_badges, stage_badge_animation_step):
         else:
             return
 
-    for n in range(stage_badges.stage_20):
+    for n in range(stage_badges.stage_20):#loop for stage 20
         if number_to_draw > 0:
             draw_x -= 16
             screen.blit(ICONS.stage_20, (draw_x, h, 16, 16))
@@ -60,7 +61,7 @@ def draw_stage_badges(screen, stage_badges, stage_badge_animation_step):
         else:
             return
 
-    for n in range(stage_badges.stage_30):
+    for n in range(stage_badges.stage_30):#loop for stage 30
         if number_to_draw > 0:
             draw_x -= 16
             screen.blit(ICONS.stage_30, (draw_x, h, 16, 16))
@@ -68,7 +69,7 @@ def draw_stage_badges(screen, stage_badges, stage_badge_animation_step):
         else:
             return
 
-    for n in range(stage_badges.stage_50):
+    for n in range(stage_badges.stage_50): #loop for stage 50
         if number_to_draw > 0:
             draw_x -= 16
             screen.blit(ICONS.stage_50, (draw_x, h, 16, 16))
@@ -76,7 +77,7 @@ def draw_stage_badges(screen, stage_badges, stage_badge_animation_step):
         else:
             return
 
-
+#function that will display the badges, animation step, the extra lives, the one up score, the high score, and the offset y as a heads-up display on the screen
 def display(screen: pygame.Surface, one_up_score: int, high_score: int, offset_y: int = 0, num_extra_lives=0,
             stage_badges=None, stage_badge_animation_step=None, show_1up=True):
     # clear the top and bottom for the hud when in play state
@@ -94,9 +95,10 @@ def display(screen: pygame.Surface, one_up_score: int, high_score: int, offset_y
     high_score_string = c.HI_SCORE_NUM_FORMAT.format(high_score)
     draw_text(screen, c.HI_SCORE_MESSAGE, Point(c.GAME_CENTER.x, 10 + offset_y), c.RED, center_x=True)
     draw_text(screen, high_score_string, Point(83, 20 + offset_y), c.WHITE)
-
+              
+    #draws the extra lives
     if num_extra_lives:
         draw_lives(screen, num_extra_lives=num_extra_lives)
-
+    #draws the stage badges
     if stage_badges is not None:
         draw_stage_badges(screen, stage_badges, stage_badge_animation_step)
