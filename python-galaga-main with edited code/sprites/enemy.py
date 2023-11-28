@@ -57,7 +57,7 @@ class Enemy(pygame.sprite.Sprite):
         dx = current_point.xpos - previous_point.xpos
         dy = current_point.ypos - previous_point.ypos
 
-        return 180 #""" math.degrees(math.atan2(dx, dy))"""
+        return 180 """" math.degrees(math.atan2(dx, dy))"""  
 
     def get_surf(self):
         if self.timer % self.interval == 0:
