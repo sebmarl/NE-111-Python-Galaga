@@ -4,7 +4,7 @@ import math
 import os 
 
 class enemy(GalagaSprite):
-    def __init__(self, screen, x, y, speed, radius, zapdos):
+    def __init__(self, screen, x, y, speed, radius, image):
         
         self.screen = screen
         self.x = x
@@ -12,7 +12,7 @@ class enemy(GalagaSprite):
         self.speed = speed
         self.radius = radius
         self.angle = 0
-        self.image = pygame.image.load(os.path.join("Resources", "zapdos.png")
+        self.image = 
         self.image = pygame.transform.scale(self.image, (radius * 2, radius * 2))
 
     def draw(self):
