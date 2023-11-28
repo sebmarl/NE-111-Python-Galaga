@@ -51,7 +51,7 @@ used as the movement path for the insectoids SM """
 for the ControlPoint class and function created above. It checks the mouse position, which button was pressed\
 Then it checks if the mouse cursor is over the control point, then if the cursor was over the \
 control point the image attribut gets set to selected image, otherwise it goes to original image.\ 
-Then if the control point is selected, the positions of the control point are updated. """ 
+Then if the control point is selected, the positions of the control point are updated.  SM """ 
 
     def get_surf(self):
         return self.image
