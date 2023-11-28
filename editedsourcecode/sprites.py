@@ -73,7 +73,28 @@ class Player(GalagaSprite):
 
 
 class Enemy(GalagaSprite):
+    def __init__(self, screen, x, y, speed, radius, zapdos):
+        
+        self.screen = screen
+        self.x = x
+        self.y = y
+        self.speed = speed
+        self.radius = radius
+        self.angle = 0
+        self.image = pygame.image.load(os.path.join("Resources", "zapdos.png")
+        self.image = pygame.transform.scale(self.image, (radius * 2, radius * 2))
 
+    def draw(self):
+        self.screen.blit(self.image, (self.x - self.radius, self.y - self.radius))
+
+    def move(self):
+        self.angle += self.speed
+        self.x = self.screen.get_width() / 2 + self.radius * math.cos(self.angle)
+        self.y = self.screen.get_height() / 2 + self.radius * math.sin(self.angle)
+
+    def update(self):
+        self.move()
+        self.draw()
     
 
 
