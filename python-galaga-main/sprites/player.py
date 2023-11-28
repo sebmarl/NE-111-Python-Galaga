@@ -1,4 +1,4 @@
-SM (Sebastian Marion-Landais) 
+JS (Jack Savelli) 
 import pygame
 from pygame.locals import (
     K_LEFT,
