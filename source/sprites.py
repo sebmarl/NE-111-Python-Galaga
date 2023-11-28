@@ -79,23 +79,28 @@ class Enemy(GalagaSprite):
             'test': [(96, 32, 16, 16)],
             }
 
-    def __init__(self, x, y, enemy_type):
-        super(Enemy, self).__init__(x, y, 16, 16)
-        self.enemy_type = enemy_type
-
-    def get_frame (self):
-        return 0
-
-    def display(self, surface: pygame.Surface):
-        frame_num = get_frame()
-        x, y, w, h = self.FRAMES[self.enemy_type][frame_num]
-        self.image = grab_sheet(x, y, w, h)
-        super(Enemy, self).display(surface)
-      
+    def __init__(self, screen, x, y, speed, radius, image):
         
-""" Creates the enemy that starts shooting towards the player SM\
-init function holds the necessary attributes the enemy needs in order\
-to exist in the game and move in a circular path. Display function """ 
+        self.screen = screen
+        self.x = x
+        self.y = y
+        self.speed = speed
+        self.radius = radius
+        self.angle = 0
+        self.image = grab_sheet(96, 32, 16, 16) 
+        self.image = pygame.transform.scale(self.image, (radius * 2, radius * 2))
+
+    def draw(self):
+        self.screen.blit(self.image, (self.x - self.radius, self.y - self.radius))
+
+    def move(self):
+        self.angle += self.speed
+        self.x = self.screen.get_width() / 2 + self.radius * math.cos(self.angle)
+        self.y = self.screen.get_height() / 2 + self.radius * math.sin(self.angle)
+
+    def update(self):
+        self.move()
+        self.draw()
 
 
 class Missile(GalagaSprite):
@@ -219,3 +224,10 @@ class ScoreText(GalagaSprite):
             self.kill()
             return
         self.lifetime -= delta_time
+
+   
+
+
+
+
+       
