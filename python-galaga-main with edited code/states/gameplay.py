@@ -1,3 +1,8 @@
+'''
+Jack Savelli
+'''
+
+
 import pygame
 import random
 import spritesheet
@@ -15,17 +20,20 @@ from bezier.control_point_collection_factory import ControlPointCollectionFactor
 from bezier.path_point_calculator import PathPointCalculator
 from bezier.control_handler_mover import ControlHandlerMover
 from bezier.path_point_selector import PathPointSelector
+
+#defining unique ID constants for events in game from pygame.USEREVENT
+
 ADDENEMY = pygame.USEREVENT + 1
 ENEMYSHOOTS = pygame.USEREVENT + 2
 FREEZE = pygame.USEREVENT + 3
 
-"""
-Jack 
-"""
-
 class Gameplay(BaseState):
     def __init__(self):
+
         super(Gameplay, self).__init__()
+
+        '''Initialize the timers for repeating events 
+        (time delay between spawning enemies, enemyshooting and freezing)'''
         pygame.time.set_timer(ADDENEMY, 450)
         pygame.time.set_timer(ENEMYSHOOTS, 1000)
         pygame.time.set_timer(FREEZE, 2000)
@@ -49,7 +57,7 @@ class Gameplay(BaseState):
         self.all_sprites.add(self.player)
         self.wave_count = 0
         self.enemies = 0
-        self.number_of_enemies = 13
+        self.number_of_enemies = 8
         self.score = 0
         self.high_score = 0
         self.freeze = False
@@ -70,7 +78,7 @@ class Gameplay(BaseState):
         self.all_sprites.add(self.player)
         self.wave_count = 0
         self.enemies = 0
-        self.number_of_enemies = 10
+        self.number_of_enemies = 8
         self.score = 0
         self.freeze = False
 
@@ -117,7 +125,7 @@ class Gameplay(BaseState):
             if event.key == pygame.K_s:
                 self.show_control = not self.show_control
             if event.key == pygame.K_SPACE:
-                if len(self.all_rockets) < 2:
+                if len(self.all_rockets) < 3:
                     self.shoot_rocket()
 
     def add_enemy(self):
