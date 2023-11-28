@@ -1,4 +1,5 @@
-﻿from .control_point_quartet import ControlPointQuartet
+""" SM (Sebastian Marion-landais) """ 
+from .control_point_quartet import ControlPointQuartet
 from .path_point import PathPoint
 
 
