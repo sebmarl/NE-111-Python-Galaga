@@ -2,7 +2,7 @@ from .tools import time_millis
 import pygame
 from . import constants as c, tools
 from .constants import Rectangle
-from .tools import grab_sheet
+from .tools import grab_sheet() 
 
 
 class GalagaSprite(pygame.sprite.Sprite):
@@ -81,7 +81,7 @@ class Enemy(GalagaSprite):
         self.speed = speed
         self.radius = radius
         self.angle = 0
-        self.image = 
+        self.image = grab_sheet()
         self.image = pygame.transform.scale(self.image, (radius * 2, radius * 2))
 
     def draw(self):
