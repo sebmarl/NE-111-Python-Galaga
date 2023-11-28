@@ -1,4 +1,4 @@
-SM (Sebastian Marion-Landais) 
+""" SM (Sebastian Marion-Landais) """ 
 import math
 import pygame
 
