@@ -43,9 +43,9 @@ class UpgradeMenu(Menu):
                     self.active_index += 1
             elif event.key == pygame.K_DOWN:
                 if self.active_index >= 2:
-                    self.active_index -= 1
+                    self.active_index = 0
                 else:
-                self.active_index = 0 if self.active_index >= 1 else 1
+                    self.active_index -= 1
             elif event.key == pygame.K_RETURN:
                 self.handle_action()
 
