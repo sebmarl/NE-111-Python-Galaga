@@ -48,9 +48,9 @@ SCORE_FILE = "scores.txt"
 GAME_SIZE = Area(448, 576)#changed the HUD Display to make it larger
 GAME_CENTER = Point(GAME_SIZE.width // 2, GAME_SIZE.height // 2)
 DEFAULT_SCREEN_SIZE = GAME_SIZE
-STAGE_TOP_Y = 30  # Y-coord. for the top of the stage
-STAGE_BOTTOM_Y = GAME_SIZE.height - 20  # Y-coord. for the bottom of the stage
-BADGE_Y = GAME_SIZE.height - 19  # Y-coord for the top of the stage badges
+STAGE_TOP_Y = 60  # Y-coord. for the top of the stage(changed)
+STAGE_BOTTOM_Y = GAME_SIZE.height - 40  # Y-coord. for the bottom of the stage(changed)
+BADGE_Y = GAME_SIZE.height - 38  # Y-coord for the top of the stage badges(changed)
 
 # Timing and frequencies:
 FPS = 30  # Frames per second
