@@ -75,7 +75,7 @@ class Player(GalagaSprite):
 
 
 class Enemy(GalagaSprite):
-    zapdos = os.path.join(os.path.expanduser('~'), 'Desktop', 'downloads', 'zapdossprite.png')
+    zapdos = os.path.join(os.path.expanduser('~'), 'Desktop', 'downloads', 'zapdos.png')
     def __init__(self, screen, x, y, speed, radius, zapdos):
         
         self.screen = screen
