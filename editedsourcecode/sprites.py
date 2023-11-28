@@ -112,7 +112,7 @@ class Missile(GalagaSprite):
         else:
             img_slice = self.PLAYER_MISSILE
         ix, iy, w, h = img_slice
-        self.image = grab_sheet(64 ,112 , 32, 32)
+        self.image = grab_sheet(246 ,67 , 3, 8)
 
     def update(self, delta_time: int, flash_flag: bool):
         vel = self.vel * delta_time
