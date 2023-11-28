@@ -2,6 +2,9 @@ import math
 import pygame
 import constants
 
+"""
+Jack Savelli
+"""
 
 class Rocket(pygame.sprite.Sprite):
     def __init__(self, sprites, xSpeed, ySpeed):

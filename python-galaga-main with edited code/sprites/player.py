@@ -6,6 +6,9 @@ from pygame.locals import (
 
 import constants
 
+"""
+Jack Savelli
+"""
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, sprites):
