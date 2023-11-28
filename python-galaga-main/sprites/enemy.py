@@ -71,6 +71,8 @@ position, rotation and appearance. SM """
             if self.image_index == self.number_of_images - 1 or \
                     self.image_index == 0:
                 self.sprite_index_count = -self.sprite_index_count
+""" The get_surf function gets the surface of the enemy in order to display it on the screen. This is important to the\
+update function in order to render the enemy on the screen. SM """ 
 
         rot_image = pygame.transform.rotate(self.images[self.image_index], self.rotation)
         self.rect = rot_image.get_rect(center=self.rect.center)
