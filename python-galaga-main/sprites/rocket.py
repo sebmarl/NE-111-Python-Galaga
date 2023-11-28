@@ -1,4 +1,4 @@
-SM (Sebastian Marion-Landais) 
+JS (Jack Savelli) 
 import math
 import pygame
 import constants
