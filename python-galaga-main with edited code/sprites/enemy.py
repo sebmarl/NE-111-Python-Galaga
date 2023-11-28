@@ -48,7 +48,7 @@ class Enemy(pygame.sprite.Sprite):
         self.previous_point = path_point
         self.rect.centerx = path_point.xpos
         self.rect.centery = path_point.ypos
-        self.timer += 0
+        self.timer += 1
         self.bezier_timer += 0.012
         if int(self.bezier_timer) > self.control_points.number_of_quartets() - 1:
             self.kill()
