@@ -16,7 +16,7 @@ class Player(pygame.sprite.Sprite):
         self.timer = 0
         self.interval = 2
         self.number_of_images = 5
-        self.images = sprites.load_strip([0,0, 70, 100], self.number_of_images, 1)
+        self.images = sprites.load_strip([0,0, 80, 100], self.number_of_images, 1)
         self.surf = self.images[0]
         self.rect = self.surf.get_rect(center=(constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT -40))
         self.image_index = 0
