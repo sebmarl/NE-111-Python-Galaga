@@ -74,39 +74,7 @@ class Player(GalagaSprite):
 
 class Enemy(GalagaSprite):
 
-    class enemy(GalagaSprite):
-    zapdos = os.path.join(os.path.expanduser('~'), 'Desktop', 'downloads', 'zapdos.png')
-    def __init__(self, screen, x, y, speed, radius, zapdos):
-        
-        self.screen = screen
-        self.x = x
-        self.y = y
-        self.speed = speed
-        self.radius = radius
-        self.angle = 0
-        self.image = pygame.image.load(zapdos)
-        self.image = pygame.transform.scale(self.image, (radius * 2, radius * 2))
-
-    def draw(self):
-        self.screen.blit(self.image, (self.x - self.radius, self.y - self.radius))
-
-    def move(self):
-        self.angle += self.speed
-        self.x = self.screen.get_width() / 2 + self.radius * math.cos(self.angle)
-        self.y = self.screen.get_height() / 2 + self.radius * math.sin(self.angle)
-
-    def update(self):
-        self.move()
-        self.draw()
-
-    def get_frame (self):
-        return 0
-
-    def display(self, surface: pygame.Surface):
-        frame_num = get_frame()
-        x, y, w, h = self.FRAMES[self.enemy_type][frame_num]
-        self.image = grab_sheet(x, y, w, h)
-        super(Enemy, self).display(surface)
+    
 
 
 class Missile(GalagaSprite):
