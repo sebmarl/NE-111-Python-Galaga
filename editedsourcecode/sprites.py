@@ -2,7 +2,7 @@ from .tools import time_millis
 import pygame
 from . import constants as c, tools
 from .constants import Rectangle
-from .tools import grab_sheet() 
+from .tools import grab_sheet 
 
 
 class GalagaSprite(pygame.sprite.Sprite):
