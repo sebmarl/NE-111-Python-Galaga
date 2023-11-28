@@ -81,7 +81,7 @@ class Enemy(GalagaSprite):
         self.speed = speed
         self.radius = radius
         self.angle = 0
-        self.image = pygame.image.load(os.path.join("Resources", "zapdos.png")
+        self.image = pygame.image.load(os.path.join("Downloads", "zapdos.png"))
         self.image = pygame.transform.scale(self.image, (radius * 2, radius * 2))
 
     def draw(self):
