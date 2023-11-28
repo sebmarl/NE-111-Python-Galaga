@@ -2,6 +2,7 @@ SM -Sebastian Marion-landais
 import pygame
 import math
 import os 
+from .tools import grab_sheet
 
 class enemy(GalagaSprite):
     def __init__(self, screen, x, y, speed, radius, image):
