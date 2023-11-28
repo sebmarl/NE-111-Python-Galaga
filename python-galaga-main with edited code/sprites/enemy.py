@@ -19,13 +19,13 @@ class Enemy(pygame.sprite.Sprite):
 
         if enemy == 0:
             self.number_of_images = 7
-            self.images = sprites.load_strip([0, 199, 48, 40], self.number_of_images, 1)
+            self.images = sprites.load_strip([0, 366, 100,74], self.number_of_images, 1)
         elif enemy == 1:
             self.number_of_images = 4
             self.images = sprites.load_strip([0, 248, 48, 40], self.number_of_images, 1)
         elif enemy == 2:
             self.number_of_images = 4
-            self.images = sprites.load_strip([0, 62, 64, 66], self.number_of_images, 1)
+            self.images = sprites.load_strip([0, 366, 65,70], self.number_of_images, 1)
 
         self.surf = self.images[0]
         self.rect = self.surf.get_rect(center=(constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT - 20))
@@ -62,7 +62,7 @@ class Enemy(pygame.sprite.Sprite):
     def get_surf(self):
         if self.timer % self.interval == 0:
             self.image_index += self.sprite_index_count
-            if self.image_index == self.number_of_images - 1 or \
+            if self.image_index == self.number_of_images -1 or \
                     self.image_index == 0:
                 self.sprite_index_count = -self.sprite_index_count
 
