@@ -20,6 +20,10 @@ class ControlPoint(pygame.sprite.Sprite):
         self.image = self.original_image
         self.rect = self.image.get_rect(center=(x, y))
         self.selected = False
+"""The code above is for creating a control point class. This class comes from pygame.sprite.Sprite\
+it can be used with sprite groups and is controlled by the pygame sprite group methods. There are\
+multiple different attributes the class uses. It is used to control the bezier curve that  Patrick Kalkman\
+used as the movement path for the insectoids SM """ 
 
     def get_event(self, event):
         pass
