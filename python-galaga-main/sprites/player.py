@@ -1,3 +1,4 @@
+SM (Sebastian Marion-Landais) 
 import pygame
 from pygame.locals import (
     K_LEFT,
