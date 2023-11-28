@@ -73,10 +73,7 @@ class Player(GalagaSprite):
 
 
 class Enemy(GalagaSprite):
-     FRAMES = {
-            'test': [(96, 32, 16, 16)],
-            }
-
+     
     def __init__(self, screen, x, y, speed, radius, image):
         
         self.screen = screen
@@ -85,7 +82,7 @@ class Enemy(GalagaSprite):
         self.speed = speed
         self.radius = radius
         self.angle = 0
-        self.image = grab_sheet(96, 32, 16, 16) 
+        self.image = grab_sheet(96, 32, 16, 16)
         self.image = pygame.transform.scale(self.image, (radius * 2, radius * 2))
 
     def draw(self):
@@ -99,6 +96,8 @@ class Enemy(GalagaSprite):
     def update(self):
         self.move()
         self.draw()
+        
+     
     
 
 
