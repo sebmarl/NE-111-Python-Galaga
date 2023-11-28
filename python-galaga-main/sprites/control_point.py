@@ -1,3 +1,4 @@
+SM (Sebastian Marion-Landais) 
 from bezier.control_point_handler import ControlPointHandler
 import pygame
 
