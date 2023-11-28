@@ -19,13 +19,13 @@ class Enemy(pygame.sprite.Sprite):
 
         if enemy == 0:
             self.number_of_images = 7
-            self.images = sprites.load_strip([0, 199, 48, 40], self.number_of_images, -1)
+            self.images = sprites.load_strip([0, 199, 48, 40], self.number_of_images, 1)
         elif enemy == 1:
             self.number_of_images = 4
-            self.images = sprites.load_strip([0, 248, 48, 40], self.number_of_images, -1)
+            self.images = sprites.load_strip([0, 248, 48, 40], self.number_of_images, 1)
         elif enemy == 2:
             self.number_of_images = 4
-            self.images = sprites.load_strip([0, 62, 64, 66], self.number_of_images, -1)
+            self.images = sprites.load_strip([0, 62, 64, 66], self.number_of_images, 1)
 
         self.surf = self.images[0]
         self.rect = self.surf.get_rect(center=(constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT - 20))
@@ -48,7 +48,7 @@ class Enemy(pygame.sprite.Sprite):
         self.previous_point = path_point
         self.rect.centerx = path_point.xpos
         self.rect.centery = path_point.ypos
-        self.timer += 1
+        self.timer += 0
         self.bezier_timer += 0.012
         if int(self.bezier_timer) > self.control_points.number_of_quartets() - 1:
             self.kill()
