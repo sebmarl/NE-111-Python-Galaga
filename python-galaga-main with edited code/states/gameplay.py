@@ -19,6 +19,9 @@ ADDENEMY = pygame.USEREVENT + 1
 ENEMYSHOOTS = pygame.USEREVENT + 2
 FREEZE = pygame.USEREVENT + 3
 
+"""
+Jack 
+"""
 
 class Gameplay(BaseState):
     def __init__(self):
