@@ -15,7 +15,7 @@ class Enemy(pygame.sprite.Sprite):
         self.control_points = control_points
         self.bezier_timer = 0.0
         self.interval = 2
-        self.sprite_index_count = 1
+        self.sprite_index_count = 0
 
         if enemy == 0:
             self.number_of_images = 5
