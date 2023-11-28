@@ -3,7 +3,7 @@ import pygame
 from . import constants as c, tools
 from .constants import Rectangle
 from .tools import grab_sheet
-import os 
+
 
 
 class GalagaSprite(pygame.sprite.Sprite):
