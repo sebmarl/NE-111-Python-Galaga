@@ -43,6 +43,7 @@ class Control(object):
         pressed_keys = pygame.key.get_pressed()
         return pressed_keys
 
+
     def main_loop(self):
         while self.running:
             # TODO: fix huge delta times when the window gets unfocused or something (if possible?)
