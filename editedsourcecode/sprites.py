@@ -141,7 +141,7 @@ class Explosion(GalagaSprite):
             self.frames = iter(self.PLAYER_FRAMES)
             self.frame_duration = self.PLAYER_FRAME_DURATION
         else:
-            self.image = grab_sheet(64, 112, 32, 32)
+            self.image = grab_sheet
             self.frames = iter(self.OTHER_FRAMES)
             self.frame_duration = self.OTHER_FRAME_DURATION
 
@@ -151,7 +151,7 @@ class Explosion(GalagaSprite):
     def next_frame(self):
         self.frame = next(self.frames)
         x, y, w, h = self.frame
-        self.image = grab_sheet(64, 112, 32, 32)
+        self.image = grab_sheet(x, y, w, h)
         self.frame_timer = 0
 
     def update(self, delta_time: int, flash_flag: bool):
