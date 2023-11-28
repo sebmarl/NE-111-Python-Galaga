@@ -45,7 +45,7 @@ RESOURCE_DIR = "resources"
 SCORE_FILE = "scores.txt"
 
 # Game space
-GAME_SIZE = Area(224, 288)
+GAME_SIZE = Area(448, 576)#changed the HUD Display to make it larger
 GAME_CENTER = Point(GAME_SIZE.width // 2, GAME_SIZE.height // 2)
 DEFAULT_SCREEN_SIZE = GAME_SIZE
 STAGE_TOP_Y = 30  # Y-coord. for the top of the stage
