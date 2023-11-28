@@ -90,7 +90,7 @@ class Enemy(pygame.sprite.Sprite):
             self.images = grab_sheet(92, 36, 16, 16) 
 
         self.surf = self.images[0]
-        self.rect = self.surf.get_rect(center=(constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT - 20))
+        self.rect = self.surf.get_rect(center=(constants.GAME_SIZE.width/ 2, constants.GAME_SIZE.height - 20))
         self.image_index = 0
         self.calculator = PathPointCalculator()
         self.previous_point = None
