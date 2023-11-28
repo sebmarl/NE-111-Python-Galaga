@@ -1,3 +1,4 @@
+SM (Sebastian Marion-Landais) 
 import math
 import pygame
 import constants
