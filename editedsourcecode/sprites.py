@@ -28,6 +28,7 @@ class GalagaSprite(pygame.sprite.Sprite):
         self.flip_horizontal: bool = False
         self.flip_vertical: bool = False
 
+
     @property
     def x(self):
         return self.rect.centerx
