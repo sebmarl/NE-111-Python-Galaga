@@ -73,7 +73,7 @@ class Player(GalagaSprite):
 
 
 class Enemy(GalagaSprite):
-    def __init__(self, screen, x, y, speed, radius, self.image):
+    def __init__(self, screen, x, y, speed, radius, image):
         
         self.screen = screen
         self.x = x
