@@ -1,3 +1,5 @@
+""" SM (Sebastian Marion-Landais) """ 
+
 import math
 import pygame
 
@@ -16,6 +18,7 @@ class Enemy(pygame.sprite.Sprite):
         self.bezier_timer = 0.0
         self.interval = 2
         self.sprite_index_count = 0
+        """ Changed the sprite_index_count from 1 to zero in order to get the images to stop rotation SM """ 
 
         if enemy == 0:
             self.number_of_images = 5
