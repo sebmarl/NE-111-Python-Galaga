@@ -2,7 +2,7 @@ from .control_point_quartet_collection import ControlPointQuartetCollection
 from .path_point_selector import PathPointSelector
 from .control_point_handler import ControlPointHandler
 
-
+#AG
 class ControlHandlerMover():
     def __init__(self,
                  control_point_quartet_collection: ControlPointQuartetCollection,

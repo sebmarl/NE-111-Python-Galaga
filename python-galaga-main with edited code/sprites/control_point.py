@@ -1,7 +1,7 @@
 from bezier.control_point_handler import ControlPointHandler
 import pygame
 
-
+#AG
 class ControlPoint(pygame.sprite.Sprite):
     def __init__(self, x, y, color, q_index,
                  p_index, control_points,
