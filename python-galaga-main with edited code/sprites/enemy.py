@@ -15,17 +15,17 @@ class Enemy(pygame.sprite.Sprite):
         self.control_points = control_points
         self.bezier_timer = 0.0
         self.interval = 2
-        self.sprite_index_count = 1
+        self.sprite_index_count = 0
 
         if enemy == 0:
-            self.number_of_images = 7
-            self.images = sprites.load_strip([0, 199, 48, 40], self.number_of_images, 1)
+            self.number_of_images = 5
+            self.images = sprites.load_strip([10,366,63,75], self.number_of_images, 0)
         elif enemy == 1:
-            self.number_of_images = 4
-            self.images = sprites.load_strip([0, 248, 48, 40], self.number_of_images, 1)
+            self.number_of_images = 5
+            self.images = sprites.load_strip([10,366,63,75], self.number_of_images, 0)
         elif enemy == 2:
-            self.number_of_images = 4
-            self.images = sprites.load_strip([0, 62, 64, 66], self.number_of_images, 1)
+            self.number_of_images = 5
+            self.images = sprites.load_strip([10,366,63,75], self.number_of_images, 0)
 
         self.surf = self.images[0]
         self.rect = self.surf.get_rect(center=(constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT - 20))
