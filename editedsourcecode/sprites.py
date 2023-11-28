@@ -102,7 +102,7 @@ class Missile(GalagaSprite):
     ENEMY_MISSILE = 246, 51, 3, 8
     PLAYER_MISSILE = 246, 67, 3, 8
 
-    def __init__(self, x, y, vel, is_enemy, image):
+    def __init__(self, x, y, vel, is_enemy):
         super(Missile, self).__init__(x, y, 2, 10)
         self.vel = vel
         self.is_enemy = is_enemy
@@ -112,7 +112,7 @@ class Missile(GalagaSprite):
         else:
             img_slice = self.PLAYER_MISSILE
         ix, iy, w, h = img_slice
-        self.image = pygame.image.load(os.path.join("Downloads", "missile.png"))
+        self.image = grab_sheet(64, 112, 32, 32)
 
     def update(self, delta_time: int, flash_flag: bool):
         vel = self.vel * delta_time
