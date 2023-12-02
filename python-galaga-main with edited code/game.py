@@ -1,4 +1,4 @@
-""" Sebastina Marion-Landais """ 
+""" Sebastian Marion-Landais """ 
 import pygame
 import constants
 
