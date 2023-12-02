@@ -1,15 +1,19 @@
+"""AG(Advait Gore)"""
 from .control_point_quartet_collection import ControlPointQuartetCollection
 from .path_point_selector import PathPointSelector
 from .control_point_handler import ControlPointHandler
 
-
+#class that determines the shape of the curve by aligning control points and path points using the other classes
 class ControlHandlerMover():
     def __init__(self,
                  control_point_quartet_collection: ControlPointQuartetCollection,
                  path_point_selector: PathPointSelector):
         self.control_point_quartet_collection = control_point_quartet_collection
         self.path_point_selector = path_point_selector
-
+    #this method is used to move a control point handler, which handles the points of the curve, to a new (x,y) position
+    #calculates difference between old position and new position, then updates position of control point handler
+    #If the control point happens to be a path point, it will update the related path point and the control point
+    #If the control point handler is a control point, it will also update the related control point's position
     def move_control_handler(self, control_point_handler: ControlPointHandler, x: int, y: int):
         dx = self.control_point_quartet_collection.get_control_point(control_point_handler).x - x
         dy = self.control_point_quartet_collection.get_control_point(control_point_handler).y - y
@@ -28,7 +32,7 @@ class ControlHandlerMover():
             self.control_point_quartet_collection.get_control_point(related_control_points[1]).x -= dx
             self.control_point_quartet_collection.get_control_point(related_control_points[1]).y -= dy
 
-        else:  # It is a control point
+        else:  # If it is a control point
             related_control_point = self.path_point_selector.find_related_control_point(control_point_handler)
             related_path_point = self.path_point_selector.find_path_point_of_control_point(control_point_handler)
 
