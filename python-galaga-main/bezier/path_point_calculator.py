@@ -34,3 +34,5 @@ class PathPointCalculator():
             (cy * time) + control_point_quartet.get_point(0).y
 
         return PathPoint(resx, resy)
+
+""" Calculator to determine the control point paths SM """ 
