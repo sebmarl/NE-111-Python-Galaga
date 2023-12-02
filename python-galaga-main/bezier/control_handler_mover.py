@@ -1,8 +1,9 @@
+"""AG(Advait Gore)"""
 from .control_point_quartet_collection import ControlPointQuartetCollection
 from .path_point_selector import PathPointSelector
 from .control_point_handler import ControlPointHandler
 
-#class that determines the shape of the curve by  aligning control points and path points using the other classes
+#class that determines the shape of the curve by aligning control points and path points using the other classes
 class ControlHandlerMover():
     def __init__(self,
                  control_point_quartet_collection: ControlPointQuartetCollection,
