@@ -1,7 +1,12 @@
-﻿from .control_point_quartet import ControlPointQuartet
+"""AG(Advait Gore)"""
+from .control_point_quartet import ControlPointQuartet
 from .control_point_quartet_collection import ControlPointQuartetCollection
 
-
+#This class provides static methods to create collection of four control points, which is used to control the curve that the enemy ships follow
+#there are 4 different static methods
+#Each one creates a control point object, adds the control point quartet objects, and will return it to the collection of points
+#each control point quartet below is initialized with four different control points, which are added to the control point quartet collection using the add method
+#The four points for each control point quartet are coded below
 class ControlPointCollectionFactory():
 
     @staticmethod
