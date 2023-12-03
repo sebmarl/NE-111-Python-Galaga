@@ -1,8 +1,8 @@
-"""AG(Advait Gore)"""
+"""AG(Advait Gore) and RG (Rohit G)"""
 import sys
 import pygame
-#Class that runs the main game 
-#This is the file that will run the game and the outputs, depending on what happens
+# Class that runs the main game
+# This is the file that will run the game and the outputs, depending on what happens
 from states.menu import Menu
 from states.gameplay import Gameplay
 from states.game_over import GameOver
@@ -20,10 +20,10 @@ states = {
     "MENU": Menu(),
     "SPLASH": Splash(),
     "GAMEPLAY": Gameplay(),
-    "GAME_OVER": GameOver(),
+    "GAME_OVER": GameOver(),  # collection of key for game states class (RG)
 }
 
-game = Game(screen, states, "SPLASH")
+game = Game(screen, states, "SPLASH")  # creates game class, parameters: pygame screen, game states and init state"
 game.run()
 pygame.quit()
-sys.exit()
+sys.exit()  # game loop init and exit (RG)
