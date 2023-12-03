@@ -1,6 +1,8 @@
+"""AG(Advait Gore)"""
 import sys
 import pygame
-
+#Class that runs the main game 
+#This is the file that will run the game and the outputs, depending on what happens
 from states.menu import Menu
 from states.gameplay import Gameplay
 from states.game_over import GameOver
