@@ -41,7 +41,7 @@ class Game(object):
         self.state.draw(self.screen)
 
     def run(self):
-        """ Runs the game, while the method self.done is not met, it runs all the other methods necessary to run the game SM """
+         """ Runs the game, while the method self.done is not met, it runs all the other methods necessary to run the game SM """
         while not self.done:
             dt = self.clock.tick(self.fps)
             self.event_loop()
