@@ -64,7 +64,7 @@ class Enemy(pygame.sprite.Sprite):
         dx = current_point.xpos - previous_point.xpos
         dy = current_point.ypos - previous_point.ypos
 
-        return 180  math.degrees(math.atan2(dx, dy))
+        return 180 * math.degrees(math.atan2(dx, dy))
         # calculates the next path point for the object "the enemy insectoids"  
 
     def get_surf(self):
