@@ -66,17 +66,17 @@ class PathPointSelector():
                 related_control_point.quartet_index = 0
 
         return related_control_point
-    """ This function checks the related control point based on the ControlPointHandler \
-                method and the it is set to specific conditions based on the original points index and\
-                quartet index. SM """ 
+#This function checks the related control point based on the ControlPointHandler \
+                #method and the it is set to specific conditions based on the original points index and\
+               # quartet index. SM  
 
     def get_last_quartet_index(self):
         return self.control_point_quartet_collection.number_of_quartets() - 1
-        """ Gets last quarter index SM """ 
+        #Gets last quarter index SM 
 
     def get_number_of_quartets(self):
         return self.control_point_quartet_collection.number_of_quartets()
-         """ Gets the # of quartets SM """ 
+         # Gets the # of quartets SM 
 
     def find_path_point_of_control_point(self, control_point_handler: ControlPointHandler):
         related_control_point = ControlPointHandler(-1, -1)
@@ -89,9 +89,8 @@ class PathPointSelector():
         related_control_point.quartet_index = control_point_handler.quartet_index
 
         return related_control_point
-""" Determines the control point solely on the control point index. If the quartet index\
-        is related ot the control point, it is then set to the same quartet index as the original control\
-        point. SM """ 
+# Determines the control point solely on the control point index. If the quartet index\
+    #is related to the control point, it is then set to the same quartet index as the original control point.
 
     def find_control_points_of_path_point(self, path_point_handler: ControlPointHandler):
         related_control_points = []
@@ -119,9 +118,9 @@ class PathPointSelector():
             exit(1)
 
         return related_control_points
-   """ This function determines the related control points based on their path. The related\
-        points are then added to a list which gets returned. IF there are any invalid point indexes in the\ 
-        list, an error is returned and the game exits with error 1 SM """ 
+   # This function determines the related control points based on their path. The related\
+        #points are then added to a list which gets returned. IF there are any invalid point indexes in the\ 
+        #list, an error is returned and the game exits with error 1 
 
     def get_control_point_pairs(self):
         line_list = []
@@ -138,6 +137,6 @@ class PathPointSelector():
                 line_list.append(((control_point1.x, control_point1.y), (control_point2.x, control_point2.y)))
 
         return line_list
-          """ Creates pairs of control points representing lines. Using the first and last control points\
-        it creates line segments, and further line segments are created for adjacent quartets. Finally a list is\
-        returned with control point pairs SM """ 
+        # Creates pairs of control points representing lines. Using the first and last control points\
+        #it creates line segments, and further line segments are created for adjacent quartets. Finally a list is\
+        #returned with control point pairs SM """ 
