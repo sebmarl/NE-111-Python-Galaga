@@ -13,8 +13,8 @@ class PathPointSelector():
         if control_point_handler.control_point_index == 0 or control_point_handler.control_point_index == 3:
             return True
         return False
-""" Creates the intialize function that works with quartets in order to determine the path of control points for the enemies class\
-        using the is path point method, it checks if the control point is part of the path. SM """ 
+# Creates the intialize function that works with quartets in order to determine the path of control points for the enemies class\
+# using the is path point method, it checks if the control point is part of the path. SM  
     def create_path_point_mapping(self):
 
         nr_quartets = self.control_point_quartet_collection.number_of_quartets()
@@ -34,8 +34,8 @@ class PathPointSelector():
 
             self.path_point_mapping[self.create_key(index, 0)] = ControlPointHandler(mapped_first_quartet_index, 3)
             self.path_point_mapping[self.create_key(index, 3)] = ControlPointHandler(mapped_last_quartet_index, 0)
-""" The path point mapping function creates mappings between the first and last control points of the quartet. These values are then\
-            stored in the path point mapping method and then turned into keys for future reference SM """ 
+#The path point mapping function creates mappings between the first and last control points of the quartet. These values are then\
+#stored in the path point mapping method and then turned into keys for future reference SM  
 
     def find_related_path_point(self, control_point_handler: ControlPointHandler):
         if self.is_path_point(control_point_handler):
