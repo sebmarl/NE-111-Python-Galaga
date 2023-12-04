@@ -17,7 +17,7 @@ import pygame
 class SpriteSheet:
 
     def __init__(self, filename):
-        """Load the sheet."""
+        #Load the sheet.
         try:
             self.sheet = pygame.image.load(filename).convert_alpha()
             self.sheet.set_colorkey(-1, pygame.RLEACCEL)
@@ -26,7 +26,7 @@ class SpriteSheet:
             raise SystemExit(e)
 
     def image_at(self, rectangle, colorkey=None):
-        """Load a specific image from a specific rectangle."""
+        #Load a specific image from a specific rectangle.
         # Loads image from x, y, x+offset, y+offset.
         rect = pygame.Rect(rectangle)
         image = pygame.Surface(rect.size).convert()
@@ -38,11 +38,11 @@ class SpriteSheet:
         return image
 
     def images_at(self, rects, colorkey=None):
-        """Load a whole bunch of images and return them as a list."""
+        #Load a whole bunch of images and return them as a list.
         return [self.image_at(rect, colorkey) for rect in rects]
 
     def load_strip(self, rect, image_count, colorkey=None):
-        """Load a whole strip of images, and return them as a list."""
+        #Load a whole strip of images, and return them as a list.
         tups = [(rect[0] + rect[2] * x, rect[1], rect[2], rect[3])
                 for x in range(image_count)]
         return self.images_at(tups, colorkey)
