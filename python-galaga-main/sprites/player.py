@@ -1,4 +1,4 @@
-JS (Jack Savelli) 
+'''JS (Jack Savelli) '''
 import pygame
 from pygame.locals import (
     K_LEFT,
