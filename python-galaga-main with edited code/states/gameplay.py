@@ -141,7 +141,7 @@ class Gameplay(BaseState):
                 self.show_control = not self.show_control
             if event.key == pygame.K_SPACE:
                 if len(self.all_rockets) < (3 + (1*self.upgrades_List.count("M"))):
-                    #Increases number of bullets that can be fired by 1 for every 'more bullets' upgrade selected
+                    #Increases number of rockets that can be fired by 1 for every 'more rockets' upgrade selected -JS
                     self.shoot_rocket()
 
     def add_enemy(self):
@@ -160,7 +160,7 @@ class Gameplay(BaseState):
 
     def shoot_rocket(self):
         rocket = Rocket(self.sprites, 0, -15 - (2*self.upgrades_List.count("F")))
-        #increases bullet speed by number of faster bullet upgrades
+        #increases rocket speed by number of faster rocket upgrades -JS
         rocket.rect.centerx = self.player.rect.centerx
         self.all_rockets.add(rocket)
         self.all_sprites.add(rocket)
@@ -177,7 +177,7 @@ class Gameplay(BaseState):
 
             if start_rocket[1] < 400:
                 ySpeed = 7 - (2*self.upgrades_List.count("S"))
-                #changes enemy bullet speed by number of bullet slow upgrades, bullet speed cannot be less than 1
+                #changes enemy rocket speed by number of rocket slow upgrades, rocket speed cannot be less than 1 -JS
                 if ySpeed < 1:
                     ySpeed = 1
                 dx = self.player.rect.centerx - start_rocket[0]

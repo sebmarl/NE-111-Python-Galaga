@@ -8,9 +8,10 @@ class UpgradeMenu(Menu):
     def __init__(self):
         super(UpgradeMenu, self).__init__()
         self.active_index = 0
-        self.options = ["More Bullets", "Faster Bullets", "Slower Enemy Bullets"]
+        self.options = ["More Rockets", "Faster Rockets", "Slower Enemy Rockets"]
         self.next_state = "GAMEPLAY"
         upgrades.upgradesList = []
+        #initializing upgrade menu options and clearing/initializing upgrade list from any previous runs JS
 
     def render_text(self, index):
         color = pygame.Color("red") if index == self.active_index \
@@ -25,15 +26,19 @@ class UpgradeMenu(Menu):
     def handle_action(self):
         if self.active_index == 0:
             upgrades.upgradesList.append("M")
+            #adds more rockets upgrade JS
             self.done = True
         elif self.active_index == 1:
             upgrades.upgradesList.append("F")
+            # adds faster rockets upgrade JS
             self.done = True
         elif self.active_index == 2:
             upgrades.upgradesList.append("S")
+            # adds slower enemy rockets upgrade JS
             self.done = True
 
     def get_event(self, event):
+        #event handler that controls for menu
         if event.type == pygame.QUIT:
             self.quit = True
         elif event.type == pygame.KEYUP:
