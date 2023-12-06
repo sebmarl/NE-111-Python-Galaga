@@ -32,8 +32,8 @@ class Explosion(pygame.sprite.Sprite):
 
     def get_surf(self):
         return self.images[self.image_index]
-""" Explosion class, subclass of pygame.sprite.Sprite. Similar to the enemy and player class,\ 
-the init method is called to initialize the appearance,position and size of the explosion.\
-Like the previous update functions as well, this update function updates the objects appearance\
- and timer. It loads the images using the load_strip method, these images are then stored into the\
- self.images list. The get_surf function gets the surface in order to display the explosion on the screen. SM """ 
+#Explosion class, subclass of pygame.sprite.Sprite. Similar to the enemy and player class,\ 
+#the init method is called to initialize the appearance,position and size of the explosion.\
+#like the previous update functions as well, this update function updates the objects appearance\
+ #and timer. It loads the images using the load_strip method, these images are then stored into the\
+ #self.images list. The get_surf function gets the surface in order to display the explosion on the screen. SM """ 

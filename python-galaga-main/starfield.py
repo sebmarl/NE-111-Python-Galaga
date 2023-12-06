@@ -24,7 +24,7 @@ class StarField():
         return stars # Sets the stars to cover the width of the screen in a random range using the random.randrange method SM
 
     def render_stars(self, screen, star_collection, speed, size, color):
-        '''responsible for updating positions of stars based on their speed and rendering them (RG)'''
+        #responsible for updating positions of stars based on their speed and rendering them (RG)'''
         for star in star_collection: # iterates through a collection of starts updating y-coord
             star[1] += speed
             if star[1] > constants.SCREEN_HEIGHT: #If start is out of screen , it resets to rand position on screen (RG)
@@ -33,7 +33,7 @@ class StarField():
             pygame.draw.circle(screen, color, star, size) # sets the star speed and range over the screen SM
 
     def render(self, screen):
-        """ renders the entire starfield , with varying speeds, colours and size"""
+        #renders the entire starfield , with varying speeds, colours and size SM"""
         self.render_stars(screen, self.star_field_slow, 1, 3, DARKGREY)
         self.render_stars(screen, self.star_field_medium, 4, 2, LIGHTGREY)
         self.render_stars(screen, self.star_field_fast, 8, 1, YELLOW)
