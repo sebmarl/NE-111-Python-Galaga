@@ -2,7 +2,7 @@
 """ Rohit G."""
 import pygame
 import constants
-
+import upgrades
 
 class Game(object):
     def __init__(self, screen, states, start_state): 
@@ -11,9 +11,10 @@ class Game(object):
         self.screen = screen
         self.clock = pygame.time.Clock()
         self.fps = constants.FPS
+        #self.upgrades = upgrades.upgradesList
         self.states = states
         self.state_name = start_state
-        self.state = self.states[self.state_name] 
+        self.state = self.states[self.state_name]
 
     def event_loop(self):
         #creates the gameplay loop 

@@ -1,4 +1,4 @@
-JS (Jack Savelli) 
+"""JS (Jack Savelli) """
 import math
 import pygame
 import constants

@@ -34,9 +34,9 @@ class Enemy(pygame.sprite.Sprite):
         self.calculator = PathPointCalculator()
         self.previous_point = None
         self.rotation_calc = 0
-""" Defines the enemy class. The enemy class is a subclass of pygame.sprite.Sprite. Follows\
-the bezier curve path along its control points. The init function keeps track of the enemy's\
-position, rotation and appearance. SM """ 
+        """ Defines the enemy class. The enemy class is a subclass of pygame.sprite.Sprite. Follows\
+        the bezier curve path along its control points. The init function keeps track of the enemy's\
+        position, rotation and appearance. SM """
 
     def get_event(self, event):
         pass

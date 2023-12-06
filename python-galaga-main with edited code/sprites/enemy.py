@@ -65,7 +65,7 @@ class Enemy(pygame.sprite.Sprite):
         dy = current_point.ypos - previous_point.ypos
 
         return 180 * math.degrees(math.atan2(dx, dy))
-        # calculates the next path point for the object "the enemy insectoids"  
+        # calculates the next path point for the object "the enemys"
 
     def get_surf(self):
         if self.timer % self.interval == 0:
@@ -77,6 +77,6 @@ class Enemy(pygame.sprite.Sprite):
         rot_image = pygame.transform.rotate(self.images[self.image_index], self.rotation)
         self.rect = rot_image.get_rect(center=self.rect.center)
         #The get_surf function gets the surface of the enemy in order to display it on the screen. This is important to the\
-#update function in order to render the enemy on the screen. SM 
+        #update function in order to render the enemy on the screen. SM
 
         return rot_image

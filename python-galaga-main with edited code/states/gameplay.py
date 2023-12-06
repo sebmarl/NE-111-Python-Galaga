@@ -7,6 +7,7 @@ import pygame
 import random
 import spritesheet
 import constants
+import upgrades
 from starfield import StarField
 
 from .base_state import BaseState
@@ -26,16 +27,19 @@ from bezier.path_point_selector import PathPointSelector
 ADDENEMY = pygame.USEREVENT + 1
 ENEMYSHOOTS = pygame.USEREVENT + 2
 FREEZE = pygame.USEREVENT + 3
+UPGRADE = pygame.USEREVENT + 4
 
 class Gameplay(BaseState):
     def __init__(self):
 
         super(Gameplay, self).__init__()
 
-        '''Initialize the timers for repeating events 
-        (time delay between spawning enemies, enemyshooting and freezing)'''
+        '''JS - Initialize the timers for repeating events - timers are determine how often an EVENT type is actioned on
+        (time delay between spawning enemies, enemyshooting and freezing - which is pausing after death before moving to
+        GAME OVER screen)'''
         pygame.time.set_timer(ADDENEMY, 450)
         pygame.time.set_timer(ENEMYSHOOTS, 1000)
+        pygame.time.set_timer(UPGRADE, 100)
         pygame.time.set_timer(FREEZE, 2000)
 
         self.rect = pygame.Rect((0, 0), (80, 80))
@@ -57,10 +61,13 @@ class Gameplay(BaseState):
         self.all_sprites.add(self.player)
         self.wave_count = 0
         self.enemies = 0
-        self.number_of_enemies = 8
+        self.number_of_enemies = 13
         self.score = 0
         self.high_score = 0
         self.freeze = False
+
+        self.number_of_upgrades = 0
+        self.upgrades_List = upgrades.upgradesList
 
         self.all_enemies = pygame.sprite.Group()
         self.all_rockets = pygame.sprite.Group()
@@ -78,9 +85,11 @@ class Gameplay(BaseState):
         self.all_sprites.add(self.player)
         self.wave_count = 0
         self.enemies = 0
-        self.number_of_enemies = 8
+        self.number_of_enemies = 3 + (4 * self.number_of_upgrades) #Difficulty increases with upgrades
         self.score = 0
         self.freeze = False
+
+        self.upgrades_List = upgrades.upgradesList
 
         self.all_enemies = pygame.sprite.Group()
         self.all_rockets = pygame.sprite.Group()
@@ -106,7 +115,7 @@ class Gameplay(BaseState):
         if event.type == pygame.QUIT:
             self.quit = True
         if event.type == ADDENEMY:
-            if self.enemies < self.number_of_enemies:
+            if self.enemies < (self.number_of_enemies + (2 * self.wave_count)): #Increases difficulty by wave
                 self.add_enemy()
             elif len(self.all_enemies) == 0:
                 self.enemies = 0
@@ -118,6 +127,12 @@ class Gameplay(BaseState):
         if event.type == FREEZE:
             if self.freeze:
                 self.done = True
+        if event.type == UPGRADE:
+            if self.score >= (200 + (200 * self.number_of_upgrades)):
+                self.control_points1.save_control_points()
+                self.number_of_upgrades += 1
+                self.next_state = "UPGRADEMENU"
+                self.done = True
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_ESCAPE:
                 self.control_points1.save_control_points()
@@ -125,7 +140,8 @@ class Gameplay(BaseState):
             if event.key == pygame.K_s:
                 self.show_control = not self.show_control
             if event.key == pygame.K_SPACE:
-                if len(self.all_rockets) < 3:
+                if len(self.all_rockets) < (3 + (1*self.upgrades_List.count("M"))):
+                    #Increases number of bullets that can be fired by 1 for every 'more bullets' upgrade selected
                     self.shoot_rocket()
 
     def add_enemy(self):
@@ -143,7 +159,8 @@ class Gameplay(BaseState):
         self.all_sprites.add(enemy2)
 
     def shoot_rocket(self):
-        rocket = Rocket(self.sprites, 0, -15)
+        rocket = Rocket(self.sprites, 0, -15 - (2*self.upgrades_List.count("F")))
+        #increases bullet speed by number of faster bullet upgrades
         rocket.rect.centerx = self.player.rect.centerx
         self.all_rockets.add(rocket)
         self.all_sprites.add(rocket)
@@ -159,7 +176,10 @@ class Gameplay(BaseState):
                     start_rocket = enemy.rect.center
 
             if start_rocket[1] < 400:
-                ySpeed = 7
+                ySpeed = 7 - (2*self.upgrades_List.count("S"))
+                #changes enemy bullet speed by number of bullet slow upgrades, bullet speed cannot be less than 1
+                if ySpeed < 1:
+                    ySpeed = 1
                 dx = self.player.rect.centerx - start_rocket[0]
                 dy = self.player.rect.centery - start_rocket[1]
 

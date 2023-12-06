@@ -1,15 +1,16 @@
 '''Created by Jack Savelli'''
 
 import pygame
-from .base_state import BaseState
-from menu import Menu
+from .menu import Menu
+import upgrades #global variable container
 
 class UpgradeMenu(Menu):
     def __init__(self):
         super(UpgradeMenu, self).__init__()
         self.active_index = 0
-        self.options = ["More Boolet", "Faster Bullets", "Larger Bullets"]
+        self.options = ["More Bullets", "Faster Bullets", "Slower Enemy Bullets"]
         self.next_state = "GAMEPLAY"
+        upgrades.upgradesList = []
 
     def render_text(self, index):
         color = pygame.Color("red") if index == self.active_index \
@@ -23,13 +24,13 @@ class UpgradeMenu(Menu):
 
     def handle_action(self):
         if self.active_index == 0:
-            #TODO: Add variable for active upgrades - Spread Shots
+            upgrades.upgradesList.append("M")
             self.done = True
         elif self.active_index == 1:
-            # TODO: Add variable for active upgrades
+            upgrades.upgradesList.append("F")
             self.done = True
-        elif self.active_index == 1:
-            # TODO: Add a variable for active upgrades
+        elif self.active_index == 2:
+            upgrades.upgradesList.append("S")
             self.done = True
 
     def get_event(self, event):
@@ -40,12 +41,12 @@ class UpgradeMenu(Menu):
                 if self.active_index <= 0:
                     self.active_index = 2
                 else:
-                    self.active_index += 1
+                    self.active_index -= 1
             elif event.key == pygame.K_DOWN:
                 if self.active_index >= 2:
                     self.active_index = 0
                 else:
-                    self.active_index -= 1
+                    self.active_index += 1
             elif event.key == pygame.K_RETURN:
                 self.handle_action()
 
