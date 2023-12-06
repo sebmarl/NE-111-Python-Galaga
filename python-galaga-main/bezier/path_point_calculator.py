@@ -35,4 +35,4 @@ class PathPointCalculator():
 
         return PathPoint(resx, resy)
 
-""" Calculator to determine the control point paths SM """ 
+#Calculator to determine the control point paths SM 
