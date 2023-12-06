@@ -34,9 +34,9 @@ class Enemy(pygame.sprite.Sprite):
         self.calculator = PathPointCalculator()
         self.previous_point = None
         self.rotation_calc = 0
-""" Defines the enemy class. The enemy class is a subclass of pygame.sprite.Sprite. Follows\
-the bezier curve path along its control points. The init function keeps track of the enemy's\
-position, rotation and appearance. SM """ 
+#Defines the enemy class. The enemy class is a subclass of pygame.sprite.Sprite. Follows\
+#the bezier curve path along its control points. The init function keeps track of the enemy's\
+#position, rotation and appearance. SM """ 
 
     def get_event(self, event):
         pass
@@ -56,14 +56,14 @@ position, rotation and appearance. SM """
         self.bezier_timer += 0.012
         if int(self.bezier_timer) > self.control_points.number_of_quartets() - 1:
             self.kill()
-""" Updates enemy position and appearance. uses the PathPointCalculator in order to do this SM """ 
+#Updates enemy position and appearance. uses the PathPointCalculator in order to do this SM """ 
 
     def calculate_rotation(self, previous_point, current_point):
         dx = current_point.xpos - previous_point.xpos
         dy = current_point.ypos - previous_point.ypos
 
         return math.degrees(math.atan2(dx, dy)) + 180
-""" calculates the next path point for the object "the enemy insectoids"  SM """ 
+#calculates the next path point for the object "the enemy insectoids"  SM """ 
 
     def get_surf(self):
         if self.timer % self.interval == 0:
@@ -71,8 +71,8 @@ position, rotation and appearance. SM """
             if self.image_index == self.number_of_images - 1 or \
                     self.image_index == 0:
                 self.sprite_index_count = -self.sprite_index_count
-""" The get_surf function gets the surface of the enemy in order to display it on the screen. This is important to the\
-update function in order to render the enemy on the screen. SM """ 
+#The get_surf function gets the surface of the enemy in order to display it on the screen. This is important to the\
+#update function in order to render the enemy on the screen. SM """ 
 
         rot_image = pygame.transform.rotate(self.images[self.image_index], self.rotation)
         self.rect = rot_image.get_rect(center=self.rect.center)
